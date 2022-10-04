@@ -18,7 +18,7 @@ class AuthTextFieldView: UIView {
     private let descriptionLabel = UILabel().then {
         $0.textColor = .systemGray4
         $0.font = UIFont.systemFont(ofSize: 14)
-        $0.isHidden = true
+        $0.alpha = 0
     }
     
     private let textField = UITextField()
@@ -74,13 +74,19 @@ class AuthTextFieldView: UIView {
 extension AuthTextFieldView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.placeholder = ""
-        descriptionLabel.isHidden = false
+        
+        UIView.animate(withDuration: 0.2) {
+            self.descriptionLabel.alpha = 1
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.placeholder = placeholder
+        self.textField.placeholder = self.placeholder
+        
         if !textField.hasText {
-            descriptionLabel.isHidden = true
+            UIView.animate(withDuration: 0.2) {
+                self.descriptionLabel.alpha = 0
+            }
         }
     }
 }
