@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE036C2128EC08C800DB03EE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE036C2028EC08C800DB03EE /* SnapKit */; };
+		CE036C2428EC08F000DB03EE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CE036C2328EC08F000DB03EE /* Then */; };
 		CE65489F28E9C69B005A820B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65489E28E9C69B005A820B /* AppDelegate.swift */; };
 		CE6548A128E9C69B005A820B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6548A028E9C69B005A820B /* SceneDelegate.swift */; };
-		CE6548A328E9C69B005A820B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6548A228E9C69B005A820B /* ViewController.swift */; };
+		CE6548A328E9C69B005A820B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6548A228E9C69B005A820B /* LoginViewController.swift */; };
 		CE6548A828E9C69C005A820B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6548A728E9C69C005A820B /* Assets.xcassets */; };
 		CE6548AB28E9C69C005A820B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6548A928E9C69C005A820B /* LaunchScreen.storyboard */; };
+		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +35,11 @@
 		CE65489B28E9C69B005A820B /* SOPT-31st-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOPT-31st-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE65489E28E9C69B005A820B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6548A028E9C69B005A820B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE6548A228E9C69B005A820B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE6548A228E9C69B005A820B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE6548A728E9C69C005A820B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6548AA28E9C69C005A820B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6548AC28E9C69C005A820B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE036C2128EC08C800DB03EE /* SnapKit in Frameworks */,
+				CE036C2428EC08F000DB03EE /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				CE036C1B28EB2A9C00DB03EE /* .gitkeep */,
+				CEFC479728EC0D7B00D5B09C /* addSubviews.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -90,8 +97,8 @@
 		CE036BE828EB249000DB03EE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				CE036BF128EB284A00DB03EE /* SignupScene */,
 				CE036BF028EB283600DB03EE /* LoginScene */,
+				CE036BF128EB284A00DB03EE /* SignupScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -201,7 +208,7 @@
 		CE036BF528EB286A00DB03EE /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				CE6548A228E9C69B005A820B /* ViewController.swift */,
+				CE6548A228E9C69B005A820B /* LoginViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -308,6 +315,10 @@
 			dependencies = (
 			);
 			name = "SOPT-31st-Assignment";
+			packageProductDependencies = (
+				CE036C2028EC08C800DB03EE /* SnapKit */,
+				CE036C2328EC08F000DB03EE /* Then */,
+			);
 			productName = "SOPT-31st-Assignment";
 			productReference = CE65489B28E9C69B005A820B /* SOPT-31st-Assignment.app */;
 			productType = "com.apple.product-type.application";
@@ -336,6 +347,10 @@
 				Base,
 			);
 			mainGroup = CE65489228E9C69B005A820B;
+			packageReferences = (
+				CE036C1F28EC08C800DB03EE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CE036C2228EC08F000DB03EE /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = CE65489C28E9C69B005A820B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -362,7 +377,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6548A328E9C69B005A820B /* ViewController.swift in Sources */,
+				CE6548A328E9C69B005A820B /* LoginViewController.swift in Sources */,
+				CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */,
 				CE65489F28E9C69B005A820B /* AppDelegate.swift in Sources */,
 				CE6548A128E9C69B005A820B /* SceneDelegate.swift in Sources */,
 			);
@@ -572,6 +588,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE036C1F28EC08C800DB03EE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		CE036C2228EC08F000DB03EE /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE036C2028EC08C800DB03EE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE036C1F28EC08C800DB03EE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		CE036C2328EC08F000DB03EE /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE036C2228EC08F000DB03EE /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE65489328E9C69B005A820B /* Project object */;
 }
