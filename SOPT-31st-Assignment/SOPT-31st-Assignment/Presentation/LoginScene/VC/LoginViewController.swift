@@ -25,7 +25,17 @@ class LoginViewController: UIViewController {
         $0.font = UIFont.systemFont(ofSize: 14)
     }
     
-    private let emailTextField = AuthTextField(placeholder: "이메일 입력")
+    private let emailTextFieldView = AuthTextFieldView(placeholder: "이메일 또는 전화번호")
+    
+    private let passwordTextzFieldView = AuthTextFieldView(placeholder: "비밀번호")
+    
+    private lazy var loginFormStackView = UIStackView(
+        arrangedSubviews:
+            [emailTextFieldView, passwordTextzFieldView])
+        .then {
+            $0.axis = .vertical
+            $0.spacing = 4
+    }
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -33,14 +43,16 @@ class LoginViewController: UIViewController {
         configureUI()
         setLayout()
     }
-    
-    // MARK: - Functions
+}
+
+// MARK: - Extensions
+extension LoginViewController {
     private func configureUI() {
         view.backgroundColor = .white
     }
     
     private func setLayout() {
-        view.addSubviews(titleLabel, descriptionLabel, emailTextField)
+        view.addSubviews(titleLabel, descriptionLabel, loginFormStackView)
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.safeAreaLayoutGuide)
@@ -52,9 +64,9 @@ class LoginViewController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(12)
         }
 
-        emailTextField.snp.makeConstraints { make in
+        loginFormStackView.snp.makeConstraints { make in
             make.centerX.equalTo(view.safeAreaLayoutGuide)
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(40)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(60)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(18)
         }
     }
