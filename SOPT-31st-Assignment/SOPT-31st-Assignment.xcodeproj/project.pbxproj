@@ -15,6 +15,7 @@
 		CE6548A828E9C69C005A820B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6548A728E9C69C005A820B /* Assets.xcassets */; };
 		CE6548AB28E9C69C005A820B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6548A928E9C69C005A820B /* LaunchScreen.storyboard */; };
 		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
+		CEFC479A28EC153900D5B09C /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479928EC153900D5B09C /* AuthTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CE6548AA28E9C69C005A820B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6548AC28E9C69C005A820B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
+		CEFC479928EC153900D5B09C /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				CE036C0928EB2A4700DB03EE /* .gitkeep */,
+				CEFC479928EC153900D5B09C /* AuthTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6548A328E9C69B005A820B /* LoginViewController.swift in Sources */,
+				CEFC479A28EC153900D5B09C /* AuthTextField.swift in Sources */,
 				CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */,
 				CE65489F28E9C69B005A820B /* AppDelegate.swift in Sources */,
 				CE6548A128E9C69B005A820B /* SceneDelegate.swift in Sources */,
