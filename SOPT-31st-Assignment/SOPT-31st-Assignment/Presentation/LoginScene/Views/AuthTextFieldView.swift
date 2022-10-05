@@ -20,15 +20,18 @@ class AuthTextFieldView: UIView {
         $0.alpha = 0
     }
     
-    private let textField = UITextField()
+    private let textField = UITextField().then {
+        $0.clearButtonMode = .whileEditing
+    }
     
     private let underLineView = UIView().then {
         $0.backgroundColor = .systemGray4
     }
     
     // MARK: - Initializations
-    init(placeholder: String) {
+    init(placeholder: String, isSecureTextEntry: Bool) {
         super.init(frame: .zero)
+        configureUI(isSecureTextEntry: isSecureTextEntry)
         setPlaceholder(placeholder)
         setLayout()
         setDelegate()
@@ -36,6 +39,10 @@ class AuthTextFieldView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureUI(isSecureTextEntry: Bool) {
+        self.textField.isSecureTextEntry = isSecureTextEntry
     }
     
     private func setPlaceholder(_ placeholder: String) {

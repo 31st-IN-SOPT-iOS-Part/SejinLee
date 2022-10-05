@@ -30,9 +30,9 @@ class LoginViewController: UIViewController {
         $0.font = UIFont.systemFont(ofSize: 14)
     }
     
-    private let emailTextFieldView = AuthTextFieldView(placeholder: "이메일 또는 전화번호")
+    private let emailTextFieldView = AuthTextFieldView(placeholder: "이메일 또는 전화번호", isSecureTextEntry: false)
     
-    private let passwordTextFieldView = AuthTextFieldView(placeholder: "비밀번호")
+    private let passwordTextFieldView = AuthTextFieldView(placeholder: "비밀번호", isSecureTextEntry: true)
     
     private lazy var loginFormStackView = UIStackView(
         arrangedSubviews:

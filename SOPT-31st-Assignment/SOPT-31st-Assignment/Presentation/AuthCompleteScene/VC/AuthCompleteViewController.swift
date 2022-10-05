@@ -55,7 +55,7 @@ extension AuthCompleteViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(welcomeLabel.snp.bottom).offset(180)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(18)
-            make.height.equalTo(50)
+            make.height.equalTo(45)
         }
     }
     
