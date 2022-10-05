@@ -129,6 +129,12 @@ extension LoginViewController {
     
     // MARK: - Actions
     @objc private func loginButtonDidTap() {
-        print(emailTextFieldView.text, passwordTextFieldView.text)
+        let userModel = UserModel(emailOrPhoneNumber: emailTextFieldView.text, password: passwordTextFieldView.text)
+        let authCompleteViewModel = AuthCompleteViewModel(userModel: userModel)
+        let authCompleteViewController = AuthCompleteViewController()
+        authCompleteViewController.viewModel = authCompleteViewModel
+        
+        authCompleteViewController.modalPresentationStyle = .fullScreen
+        self.present(authCompleteViewController, animated: true)
     }
 }
