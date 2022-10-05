@@ -14,6 +14,7 @@
 		CE6548A328E9C69B005A820B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6548A228E9C69B005A820B /* LoginViewController.swift */; };
 		CE6548A828E9C69C005A820B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6548A728E9C69C005A820B /* Assets.xcassets */; };
 		CE6548AB28E9C69C005A820B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6548A928E9C69C005A820B /* LaunchScreen.storyboard */; };
+		CE8C82D628ED1DD300E384BF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82D528ED1DD300E384BF /* UserModel.swift */; };
 		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
 		CEFC479A28EC153900D5B09C /* AuthTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479928EC153900D5B09C /* AuthTextFieldView.swift */; };
 		CEFC479D28EC59D800D5B09C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEFC479C28EC59D800D5B09C /* CombineMoya */; };
@@ -28,7 +29,6 @@
 		CE036C0528EB2A3800DB03EE /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		CE036C0728EB2A4000DB03EE /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		CE036C0D28EB2A6100DB03EE /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		CE036C1128EB2A7500DB03EE /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		CE036C1328EB2A7B00DB03EE /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		CE036C1528EB2A8300DB03EE /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		CE036C1728EB2A8900DB03EE /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -41,6 +41,7 @@
 		CE6548A728E9C69C005A820B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6548AA28E9C69C005A820B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6548AC28E9C69C005A820B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE8C82D528ED1DD300E384BF /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
 		CEFC479928EC153900D5B09C /* AuthTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,7 +238,7 @@
 		CE036BF828EB288200DB03EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE036C1128EB2A7500DB03EE /* .gitkeep */,
+				CE8C82D528ED1DD300E384BF /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +388,7 @@
 			files = (
 				CE6548A328E9C69B005A820B /* LoginViewController.swift in Sources */,
 				CEFC479A28EC153900D5B09C /* AuthTextFieldView.swift in Sources */,
+				CE8C82D628ED1DD300E384BF /* UserModel.swift in Sources */,
 				CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */,
 				CE65489F28E9C69B005A820B /* AppDelegate.swift in Sources */,
 				CE6548A128E9C69B005A820B /* SceneDelegate.swift in Sources */,
