@@ -6,13 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class AuthTextFieldView: UIView {
     // MARK: - Properties
     var placeholder = ""
-    var text: String? {
-        textField.text
-    }
+    @Published var text: String = ""
     
     // MARK: - UI
     private let descriptionLabel = UILabel().then {
@@ -88,5 +87,9 @@ extension AuthTextFieldView: UITextFieldDelegate {
                 self.descriptionLabel.alpha = 0
             }
         }
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.text = textField.text ?? ""
     }
 }

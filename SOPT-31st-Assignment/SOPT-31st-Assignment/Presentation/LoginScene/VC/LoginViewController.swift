@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import Combine
 import SnapKit
 import Then
 
 class LoginViewController: UIViewController {
+    // MARK: - Properties
+    var viewModel: LoginViewModel!
+    private var cancellable: Set<AnyCancellable> = []
+    
     // MARK: - UI
     private let titleLabel = UILabel().then {
         $0.text = "카카오톡을 시작합니다"
@@ -27,21 +32,23 @@ class LoginViewController: UIViewController {
     
     private let emailTextFieldView = AuthTextFieldView(placeholder: "이메일 또는 전화번호")
     
-    private let passwordTextzFieldView = AuthTextFieldView(placeholder: "비밀번호")
+    private let passwordTextFieldView = AuthTextFieldView(placeholder: "비밀번호")
     
     private lazy var loginFormStackView = UIStackView(
         arrangedSubviews:
-            [emailTextFieldView, passwordTextzFieldView])
+            [emailTextFieldView, passwordTextFieldView])
         .then {
             $0.axis = .vertical
             $0.spacing = 4
     }
     
-    private let loginButton = UIButton(type: .system).then {
+    private lazy var loginButton = UIButton(type: .system).then {
         $0.setTitle("카카오계정 로그인", for: .normal)
         $0.setTitleColor(.black, for: .normal)
         $0.backgroundColor = .systemGray6
+        $0.isEnabled = false
         $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
     }
     
     private let makeAccountButton = UIButton(type: .system).then {
@@ -70,6 +77,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         setLayout()
+        bind()
     }
 }
 
@@ -104,5 +112,23 @@ extension LoginViewController {
             make.top.equalTo(loginFormStackView.snp.bottom).offset(20)
             make.height.equalTo(150)
         }
+    }
+    
+    private func bind() {
+        self.viewModel = LoginViewModel()
+        
+        emailTextFieldView.$text.combineLatest(passwordTextFieldView.$text).sink {[weak self] info in
+            self?.viewModel.loginFormDidChange(info: info)
+        }.store(in: &self.cancellable)
+        
+        viewModel.$isLoginValid.sink {[weak self] isValid in
+            self?.loginButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
+            self?.loginButton.isEnabled = isValid
+        }.store(in: &self.cancellable)
+    }
+    
+    // MARK: - Actions
+    @objc private func loginButtonDidTap() {
+        print(emailTextFieldView.text, passwordTextFieldView.text)
     }
 }
