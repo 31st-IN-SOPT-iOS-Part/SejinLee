@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthCompleteViewController: UIViewController {
+final class AuthCompleteViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: AuthCompleteViewModel!

@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class AuthTextFieldView: UIView {
+final class AuthTextFieldView: UIView {
     // MARK: - Properties
     var placeholder = ""
     @Published var text: String = ""

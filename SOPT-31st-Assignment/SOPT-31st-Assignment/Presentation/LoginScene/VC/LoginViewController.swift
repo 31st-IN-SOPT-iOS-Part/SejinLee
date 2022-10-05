@@ -10,7 +10,7 @@ import Combine
 import SnapKit
 import Then
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     // MARK: - Properties
     var viewModel: LoginViewModel!
     private var cancellable: Set<AnyCancellable> = []
