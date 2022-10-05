@@ -13,4 +13,8 @@ struct AuthCompleteViewModel {
     init(userModel: UserModel) {
         self.userModel = userModel
     }
+    
+    func getWelcomeText() -> String {
+        return "\(userModel.emailOrPhoneNumber)님\n환영합니다"
+    }
 }
