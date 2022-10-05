@@ -37,6 +37,34 @@ class LoginViewController: UIViewController {
             $0.spacing = 4
     }
     
+    private let loginButton = UIButton(type: .system).then {
+        $0.setTitle("카카오계정 로그인", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.backgroundColor = .systemGray6
+        $0.layer.cornerRadius = 10
+    }
+    
+    private let makeAccountButton = UIButton(type: .system).then {
+        $0.setTitle("새로운 카카오계정 만들기", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.backgroundColor = .systemGray6
+        $0.layer.cornerRadius = 10
+    }
+    
+    private let findAccountButton = UIButton(type: .system).then {
+        $0.setTitle("카카오계정 또는 비밀번호 찾기", for: .normal)
+        $0.setTitleColor(.gray, for: .normal)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+    }
+    
+    private lazy var buttonStackView = UIStackView(arrangedSubviews: [loginButton, makeAccountButton, findAccountButton]).then {
+        $0.axis = .vertical
+        $0.spacing = 8
+        $0.distribution = .fillEqually
+    }
+    
+    
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +80,7 @@ extension LoginViewController {
     }
     
     private func setLayout() {
-        view.addSubviews(titleLabel, descriptionLabel, loginFormStackView)
+        view.addSubviews(titleLabel, descriptionLabel, loginFormStackView, buttonStackView)
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.safeAreaLayoutGuide)
@@ -68,6 +96,13 @@ extension LoginViewController {
             make.centerX.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(descriptionLabel.snp.bottom).offset(60)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(18)
+        }
+        
+        buttonStackView.snp.makeConstraints { make in
+            make.centerX.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(18)
+            make.top.equalTo(loginFormStackView.snp.bottom).offset(20)
+            make.height.equalTo(150)
         }
     }
 }
