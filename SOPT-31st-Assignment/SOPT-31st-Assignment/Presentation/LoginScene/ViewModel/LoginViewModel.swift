@@ -12,7 +12,7 @@ final class LoginViewModel {
     
     @Published private(set) var isLoginValid: Bool = false
     
-    func loginFormDidChange(info: (String?, String?)) {
+    func loginFormDidChange(info: (String, String)) {
         if info.0 != "" && info.1 != "" {
             isLoginValid = true
         } else {
