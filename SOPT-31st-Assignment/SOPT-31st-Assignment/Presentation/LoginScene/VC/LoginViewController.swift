@@ -51,11 +51,12 @@ final class LoginViewController: UIViewController {
         $0.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
     }
     
-    private let makeAccountButton = UIButton(type: .system).then {
+    private lazy var makeAccountButton = UIButton(type: .system).then {
         $0.setTitle("새로운 카카오계정 만들기", for: .normal)
         $0.setTitleColor(.black, for: .normal)
         $0.backgroundColor = .systemGray6
         $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(makeAccountButtonDidTap), for: .touchUpInside)
     }
     
     private let findAccountButton = UIButton(type: .system).then {
@@ -85,6 +86,7 @@ final class LoginViewController: UIViewController {
 extension LoginViewController {
     private func configureUI() {
         view.backgroundColor = .white
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     private func setLayout() {
@@ -136,5 +138,11 @@ extension LoginViewController {
         
         authCompleteViewController.modalPresentationStyle = .fullScreen
         self.present(authCompleteViewController, animated: true)
+    }
+    
+    @objc private func makeAccountButtonDidTap() {
+        let signUpViewController = SignUpViewController()
+        
+        self.navigationController?.pushViewController(signUpViewController, animated: true)
     }
 }
