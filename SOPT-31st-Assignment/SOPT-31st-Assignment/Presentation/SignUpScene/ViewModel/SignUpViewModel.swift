@@ -12,12 +12,15 @@ final class SignUpViewModel {
     
     @Published private(set) var isSignUpValid: Bool = false
     
-    func loginFormDidChange(info: (String, String)) {
-//        if info.0 != "" && info.1 != "" {
-//            isLoginValid = true
-//        } else {
-//            isLoginValid = false
-//        }
+    func signUpFormDidChange(info: (String, String, String)) {
+        if info.0 != "" && info.1 != "" && info.2 != "" {
+            if info.1 == info.2 {
+                isSignUpValid = true
+                return
+            }
+        }
+        
+        isSignUpValid = false
     }
     
 }

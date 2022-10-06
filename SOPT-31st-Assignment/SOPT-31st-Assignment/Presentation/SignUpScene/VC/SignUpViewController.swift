@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 final class SignUpViewController: UIViewController {
-    
+    // MARK: - Properties
+    var viewModel: SignUpViewModel!
+    private var cancellable: Set<AnyCancellable> = []
+
     // MARK: - UI
     private let titleLabel = UILabel().then {
         $0.text = "카카오톡을 시작합니다"
@@ -22,6 +26,7 @@ final class SignUpViewController: UIViewController {
         $0.textAlignment = .center
         $0.textColor = UIColor.gray
         $0.font = UIFont.systemFont(ofSize: 14)
+        $0.isHidden = true
     }
     
     private let emailTextFieldView = AuthTextFieldView(placeholder: "이메일 또는 전화번호", isSecureTextEntry: false)
@@ -44,6 +49,7 @@ final class SignUpViewController: UIViewController {
         $0.backgroundColor = .systemGray6
         $0.isEnabled = false
         $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(signUpButtonDidTap), for: .touchUpInside)
     }
     
     // MARK: - View Life Cycle
@@ -51,11 +57,12 @@ final class SignUpViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         setLayout()
+        bind()
     }
 }
 
+// MARK: - Extensions
 extension SignUpViewController {
-    
     private func configureUI() {
         view.backgroundColor = .white
     }
@@ -65,7 +72,7 @@ extension SignUpViewController {
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.safeAreaLayoutGuide)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
         }
         
         descriptionLabel.snp.makeConstraints { make in
@@ -84,6 +91,35 @@ extension SignUpViewController {
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(18)
             make.top.equalTo(signUpFormStackView.snp.bottom).offset(20)
             make.height.equalTo(45)
+        }
+    }
+    
+    private func bind() {
+        emailTextFieldView.$text
+            .combineLatest(passwordTextFieldView.$text,
+                           passwordCheckTextFieldView.$text)
+            .sink { [weak self] info in
+                self?.viewModel.signUpFormDidChange(info: info)
+            }.store(in: &self.cancellable)
+        
+        viewModel.$isSignUpValid
+            .receive(on: RunLoop.main)
+            .sink { [weak self] isValid in
+                self?.signUpButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
+                self?.signUpButton.isEnabled = isValid
+        }.store(in: &self.cancellable)
+    }
+    
+    // MARK: - Actions
+    @objc private func signUpButtonDidTap() {
+        let userModel = UserModel(emailOrPhoneNumber: emailTextFieldView.text, password: passwordTextFieldView.text)
+        let authCompleteViewModel = AuthCompleteViewModel(userModel: userModel)
+        let authCompleteViewController = AuthCompleteViewController()
+        authCompleteViewController.viewModel = authCompleteViewModel
+        
+        authCompleteViewController.modalPresentationStyle = .fullScreen
+        self.present(authCompleteViewController, animated: true) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

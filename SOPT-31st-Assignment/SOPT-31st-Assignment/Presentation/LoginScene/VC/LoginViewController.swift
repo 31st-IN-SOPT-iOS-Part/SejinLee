@@ -94,7 +94,7 @@ extension LoginViewController {
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.safeAreaLayoutGuide)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
         }
     
         descriptionLabel.snp.makeConstraints { make in
@@ -123,7 +123,9 @@ extension LoginViewController {
             self?.viewModel.loginFormDidChange(info: info)
         }.store(in: &self.cancellable)
         
-        viewModel.$isLoginValid.sink {[weak self] isValid in
+        viewModel.$isLoginValid
+            .receive(on: RunLoop.main)
+            .sink {[weak self] isValid in
             self?.loginButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
             self?.loginButton.isEnabled = isValid
         }.store(in: &self.cancellable)
@@ -141,7 +143,9 @@ extension LoginViewController {
     }
     
     @objc private func makeAccountButtonDidTap() {
+        let signUpViewModel = SignUpViewModel()
         let signUpViewController = SignUpViewController()
+        signUpViewController.viewModel = signUpViewModel
         
         self.navigationController?.pushViewController(signUpViewController, animated: true)
     }
