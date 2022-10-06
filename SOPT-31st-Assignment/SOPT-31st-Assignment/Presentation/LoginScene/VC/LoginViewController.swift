@@ -116,9 +116,7 @@ extension LoginViewController {
         }
     }
     
-    private func bind() {
-        self.viewModel = LoginViewModel()
-        
+    private func bind() {        
         emailTextFieldView.$text.combineLatest(passwordTextFieldView.$text).sink {[weak self] info in
             self?.viewModel.loginFormDidChange(info: info)
         }.store(in: &self.cancellable)
@@ -133,19 +131,16 @@ extension LoginViewController {
     
     // MARK: - Actions
     @objc private func loginButtonDidTap() {
-        let userModel = UserModel(emailOrPhoneNumber: emailTextFieldView.text, password: passwordTextFieldView.text)
-        let authCompleteViewModel = AuthCompleteViewModel(userModel: userModel)
-        let authCompleteViewController = AuthCompleteViewController()
-        authCompleteViewController.viewModel = authCompleteViewModel
+        let authCompleteViewController = ModuleFactory.shared.makeAuthCompleteViewController(
+            emailOrPhoneNumber: emailTextFieldView.text,
+            password: passwordTextFieldView.text)
         
         authCompleteViewController.modalPresentationStyle = .fullScreen
         self.present(authCompleteViewController, animated: true)
     }
     
     @objc private func makeAccountButtonDidTap() {
-        let signUpViewModel = SignUpViewModel()
-        let signUpViewController = SignUpViewController()
-        signUpViewController.viewModel = signUpViewModel
+        let signUpViewController = ModuleFactory.shared.makeSignUpViewConroller()
         
         self.navigationController?.pushViewController(signUpViewController, animated: true)
     }
