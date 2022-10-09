@@ -15,6 +15,12 @@ final class LoginViewController: UIViewController {
     var viewModel: LoginViewModel!
     private var cancellable: Set<AnyCancellable> = []
     
+    private let firstView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .systemPink
+        return view
+    }()
+    
     // MARK: - UI
     private let titleLabel = UILabel().then {
         $0.text = "카카오톡을 시작합니다"
@@ -117,13 +123,23 @@ extension LoginViewController {
     }
     
     private func bind() {        
-        emailTextFieldView.$text.combineLatest(passwordTextFieldView.$text).sink {[weak self] info in
-            self?.viewModel.loginFormDidChange(info: info)
-        }.store(in: &self.cancellable)
+//        emailTextFieldView.$text.combineLatest(passwordTextFieldView.$text).sink {[weak self] info in
+//            self?.viewModel.loginFormDidChange(info: info)
+//        }.store(in: &self.cancellable)
+//
+//        viewModel.$isLoginValid
+//            .receive(on: RunLoop.main)
+//            .sink {[weak self] isValid in
+//            self?.loginButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
+//            self?.loginButton.isEnabled = isValid
+//        }.store(in: &self.cancellable)
         
-        viewModel.$isLoginValid
-            .receive(on: RunLoop.main)
-            .sink {[weak self] isValid in
+        let input = LoginViewModel.Input(emailText: emailTextFieldView.$text, passwordText: passwordTextFieldView.$text)
+        
+        let output = viewModel.transform(from: input)
+        
+        output.isLoginValid.sink { [weak self] isValid in
+            print(isValid)
             self?.loginButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
             self?.loginButton.isEnabled = isValid
         }.store(in: &self.cancellable)

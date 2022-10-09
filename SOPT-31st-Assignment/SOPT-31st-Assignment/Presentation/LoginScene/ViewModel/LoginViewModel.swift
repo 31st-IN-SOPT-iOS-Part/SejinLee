@@ -8,16 +8,30 @@
 import Foundation
 import Combine
 
-final class LoginViewModel {
+final class LoginViewModel: ViewModelType {
     
-    @Published private(set) var isLoginValid: Bool = false
+    private var cancellable: Set<AnyCancellable> = []
     
-    func loginFormDidChange(info: (String, String)) {
-        if info.0 != "" && info.1 != "" {
-            isLoginValid = true
-        } else {
-            isLoginValid = false
-        }
+    struct Input {
+        let emailText: Published<String>.Publisher
+        let passwordText: Published<String>.Publisher
     }
     
+    struct Output {
+        var isLoginValid = PassthroughSubject<Bool, Never>()
+    }
+    
+    func transform(from input: Input) -> Output {
+        let output = Output()
+        
+        input.emailText.combineLatest(input.passwordText).sink { info in
+            if info.0 != "" && info.1 != "" {
+                output.isLoginValid.send(true)
+            } else {
+                output.isLoginValid.send(false)
+            }
+        }.store(in: &self.cancellable)
+        return output
+    }
+
 }

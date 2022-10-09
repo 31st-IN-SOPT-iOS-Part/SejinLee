@@ -21,6 +21,7 @@
 		CE8C82D828ED1E5000E384BF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82D728ED1E5000E384BF /* LoginViewModel.swift */; };
 		CE8C82E028ED3EE300E384BF /* AuthCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */; };
 		CE8C82E228ED3F4200E384BF /* AuthCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */; };
+		CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF31D0628F161B70027736A /* ViewModelType.swift */; };
 		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
 		CEFC479A28EC153900D5B09C /* AuthTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479928EC153900D5B09C /* AuthTextFieldView.swift */; };
 		CEFC479D28EC59D800D5B09C /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEFC479C28EC59D800D5B09C /* CombineMoya */; };
@@ -50,6 +51,7 @@
 		CE8C82D728ED1E5000E384BF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewController.swift; sourceTree = "<group>"; };
 		CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewModel.swift; sourceTree = "<group>"; };
+		CEF31D0628F161B70027736A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
 		CEFC479928EC153900D5B09C /* AuthTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 		CE036BE428EB247200DB03EE /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				CEF31D0528F1612A0027736A /* Protocols */,
 				CE036BEA28EB24B400DB03EE /* Supporting Files */,
 				CE036BED28EB24F300DB03EE /* Extensions */,
 				CE036BEC28EB24EA00DB03EE /* Literals */,
@@ -347,6 +350,14 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		CEF31D0528F1612A0027736A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CEF31D0628F161B70027736A /* ViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +451,7 @@
 				CE6548A128E9C69B005A820B /* SceneDelegate.swift in Sources */,
 				CE39FD9428EE911300ABEC63 /* SignUpViewModel.swift in Sources */,
 				CE8C82D828ED1E5000E384BF /* LoginViewModel.swift in Sources */,
+				CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
