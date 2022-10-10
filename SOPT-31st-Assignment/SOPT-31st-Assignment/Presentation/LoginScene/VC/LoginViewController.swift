@@ -122,24 +122,12 @@ extension LoginViewController {
         }
     }
     
-    private func bind() {        
-//        emailTextFieldView.$text.combineLatest(passwordTextFieldView.$text).sink {[weak self] info in
-//            self?.viewModel.loginFormDidChange(info: info)
-//        }.store(in: &self.cancellable)
-//
-//        viewModel.$isLoginValid
-//            .receive(on: RunLoop.main)
-//            .sink {[weak self] isValid in
-//            self?.loginButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
-//            self?.loginButton.isEnabled = isValid
-//        }.store(in: &self.cancellable)
-        
+    private func bind() {
         let input = LoginViewModel.Input(emailText: emailTextFieldView.$text, passwordText: passwordTextFieldView.$text)
         
         let output = viewModel.transform(from: input)
         
         output.isLoginValid.sink { [weak self] isValid in
-            print(isValid)
             self?.loginButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
             self?.loginButton.isEnabled = isValid
         }.store(in: &self.cancellable)

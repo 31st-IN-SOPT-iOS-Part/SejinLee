@@ -95,18 +95,13 @@ extension SignUpViewController {
     }
     
     private func bind() {
-        emailTextFieldView.$text
-            .combineLatest(passwordTextFieldView.$text,
-                           passwordCheckTextFieldView.$text)
-            .sink { [weak self] info in
-                self?.viewModel.signUpFormDidChange(info: info)
-            }.store(in: &self.cancellable)
+        let input = SignUpViewModel.Input(emailText: emailTextFieldView.$text, passwordText: passwordTextFieldView.$text, passwordCheckText: passwordCheckTextFieldView.$text)
         
-        viewModel.$isSignUpValid
-            .receive(on: RunLoop.main)
-            .sink { [weak self] isValid in
-                self?.signUpButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
-                self?.signUpButton.isEnabled = isValid
+        let output = viewModel.transform(from: input)
+        
+        output.isSignUpValid.sink { [weak self] isValid in
+            self?.signUpButton.backgroundColor = isValid ? UIColor.yellow : UIColor.systemGray6
+            self?.signUpButton.isEnabled = isValid
         }.store(in: &self.cancellable)
     }
     
