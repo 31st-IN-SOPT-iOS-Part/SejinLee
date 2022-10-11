@@ -111,7 +111,6 @@ extension SignUpViewController {
         let authCompleteViewModel = AuthCompleteViewModel(userModel: userModel)
         let authCompleteViewController = AuthCompleteViewController()
         authCompleteViewController.viewModel = authCompleteViewModel
-        
         authCompleteViewController.modalPresentationStyle = .fullScreen
         self.present(authCompleteViewController, animated: true) {
             self.navigationController?.popViewController(animated: true)

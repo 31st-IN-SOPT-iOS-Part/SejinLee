@@ -138,7 +138,6 @@ extension LoginViewController {
         let authCompleteViewController = ModuleFactory.shared.makeAuthCompleteViewController(
             emailOrPhoneNumber: emailTextFieldView.text,
             password: passwordTextFieldView.text)
-        
         authCompleteViewController.modalPresentationStyle = .fullScreen
         self.present(authCompleteViewController, animated: true)
     }
