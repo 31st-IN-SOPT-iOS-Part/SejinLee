@@ -24,12 +24,10 @@ final class LoginViewModel: ViewModelType {
     func transform(from input: Input) -> Output {
         let output = Output()
         
-        input.emailText.combineLatest(input.passwordText).sink { info in
-            if info.0 != "" && info.1 != "" {
-                output.isLoginValid.send(true)
-            } else {
-                output.isLoginValid.send(false)
-            }
+        input.emailText.combineLatest(input.passwordText).map { info -> Bool in
+            return info.0 != "" && info.1 != ""
+        }.sink {
+            output.isLoginValid.send($0)
         }.store(in: &self.cancellable)
         return output
     }

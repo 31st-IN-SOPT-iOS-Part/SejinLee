@@ -25,17 +25,13 @@ final class SignUpViewModel: ViewModelType {
     func transform(from input: Input) -> Output {
         let output = Output()
         
-        input.emailText.combineLatest(input.passwordText, input.passwordCheckText).sink { info in
-            if info.0 != "" && info.1 != "" && info.2 != "" {
-                if info.1 == info.2 {
-                    print(info)
-                    output.isSignUpValid.send(true)
-                }
-            } else {
-                output.isSignUpValid.send(false)
+        input.emailText.combineLatest(input.passwordText, input.passwordCheckText)
+            .map { info -> Bool in
+                return info.0 != "" && info.1 != "" && info.2 != "" && info.1 == info.2
             }
-        }.store(in: &self.cancellable)
+            .sink {
+                output.isSignUpValid.send($0)
+            }.store(in: &self.cancellable)
         return output
     }
-    
 }
