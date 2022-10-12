@@ -26,4 +26,8 @@ class ProfileViewModel: ViewModelType {
     func transform(from input: Input) -> Output {
         return Output()
     }
+    
+    func getUserName() -> String {
+        return userModel.emailOrPhoneNumber
+    }
 }
