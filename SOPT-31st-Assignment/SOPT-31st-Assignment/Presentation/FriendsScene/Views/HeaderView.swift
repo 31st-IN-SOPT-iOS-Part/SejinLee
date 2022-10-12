@@ -48,7 +48,7 @@ extension HeaderView {
         }
         
         settingButton.snp.makeConstraints { make in
-            make.leading.equalTo(titleLabel.snp.trailing).offset(2)
+            make.trailing.equalToSuperview().inset(15)
             make.centerY.equalTo(titleLabel)
         }
     }

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class FriendsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: FriendsViewModel!
+    private var cancellable: Set<AnyCancellable> = []
 
     // MARK: - UI
     private let headerView = HeaderView(title: "친구")
@@ -17,6 +19,11 @@ class FriendsViewController: UIViewController {
     private let userImageView = UIImageView().then {
         $0.image = UIImage(named: "friendtab_profileImg")
         $0.contentMode = .scaleAspectFill
+    }
+    
+    private let userNameLabel = UILabel().then {
+        $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        $0.textColor = .black
     }
     
     private let userInfoView = UIView()
@@ -27,6 +34,7 @@ class FriendsViewController: UIViewController {
         configureUI()
         setLayout()
         setGesture()
+        bind()
     }
 }
 
@@ -49,11 +57,19 @@ extension FriendsViewController {
             make.height.equalTo(60)
         }
         
-        userInfoView.addSubviews(userImageView)
+        userInfoView.addSubviews(userImageView, userNameLabel)
         userImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().inset(14)
         }
+        userNameLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(userImageView.snp.trailing).offset(14)
+        }
+    }
+    
+    func bind() {
+        userNameLabel.text = viewModel.getUserName()
     }
     
     func setGesture() {

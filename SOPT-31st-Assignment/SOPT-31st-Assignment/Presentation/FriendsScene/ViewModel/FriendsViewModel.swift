@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class FriendsViewModel: ViewModelType {
     var userModel: UserModel
@@ -15,15 +16,17 @@ class FriendsViewModel: ViewModelType {
     }
     
     struct Input {
-        
     }
     
     struct Output {
-        
     }
     
     func transform(from input: Input) -> Output {
-        Output()
+        let output = Output()
+        return output
     }
     
+    func getUserName() -> String {
+        return userModel.emailOrPhoneNumber
+    }
 }
