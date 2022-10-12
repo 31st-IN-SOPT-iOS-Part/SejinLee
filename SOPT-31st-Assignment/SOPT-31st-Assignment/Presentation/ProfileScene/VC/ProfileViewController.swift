@@ -31,6 +31,13 @@ class ProfileViewController: UIViewController {
         $0.textColor = .white
     }
     
+    private let dividerView = UIView().then {
+        $0.backgroundColor = .white
+    }
+    
+    let chatButtonView = ProfileButtonView.chat(title: "나와의 채팅")
+        .build()
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +53,7 @@ extension ProfileViewController {
     }
     
     private func setLayout() {
-        view.addSubviews(cancelButton, userImageView, userNameLabel)
+        view.addSubviews(cancelButton, userImageView, userNameLabel, dividerView)
         
         cancelButton.snp.makeConstraints { make in
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(18)
@@ -61,7 +68,17 @@ extension ProfileViewController {
             make.centerX.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(userImageView.snp.bottom).offset(8)
         }
+        dividerView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(userNameLabel.snp.bottom).offset(42)
+            make.height.equalTo(1)
+        }
         
+        view.addSubview(chatButtonView)
+        chatButtonView.snp.makeConstraints { make in
+            make.leading.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.width.height.equalTo(96)
+        }
     }
     
     private func bind() {
