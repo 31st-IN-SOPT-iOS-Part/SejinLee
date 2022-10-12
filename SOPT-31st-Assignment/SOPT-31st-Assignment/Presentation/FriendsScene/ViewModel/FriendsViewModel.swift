@@ -8,6 +8,11 @@
 import Foundation
 
 class FriendsViewModel: ViewModelType {
+    var userModel: UserModel
+    
+    init(userModel: UserModel) {
+        self.userModel = userModel
+    }
     
     struct Input {
         

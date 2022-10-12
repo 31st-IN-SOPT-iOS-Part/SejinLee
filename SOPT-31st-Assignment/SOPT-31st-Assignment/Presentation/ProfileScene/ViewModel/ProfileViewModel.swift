@@ -6,3 +6,24 @@
 //
 
 import Foundation
+
+class ProfileViewModel: ViewModelType {
+
+    var userModel: UserModel
+    
+    init(userModel: UserModel) {
+        self.userModel = userModel
+    }
+    
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
+    
+    func transform(from input: Input) -> Output {
+        return Output()
+    }
+}

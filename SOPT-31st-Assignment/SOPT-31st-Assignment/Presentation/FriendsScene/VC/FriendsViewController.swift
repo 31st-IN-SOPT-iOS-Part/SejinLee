@@ -63,6 +63,8 @@ extension FriendsViewController {
     
     // MARK: - Actions
     @objc func userInfoViewDidTap() {
-        print("Tap")
+        let profileViewController = ModuleFactory.shared.makeProfileViewController(userModel: viewModel.userModel)
+        profileViewController.modalPresentationStyle = .fullScreen
+        self.present(profileViewController, animated: true)
     }
 }

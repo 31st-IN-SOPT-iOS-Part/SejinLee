@@ -61,7 +61,7 @@ extension AuthCompleteViewController {
     
     // MARK: - Actions
     @objc func completeButtonDidTap() {
-        let friendsViewController = ModuleFactory.shared.makeFriendsViewController()
+        let friendsViewController = ModuleFactory.shared.makeFriendsViewController(userModel: viewModel.userModel)
         
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(friendsViewController, animated: false)
     }
