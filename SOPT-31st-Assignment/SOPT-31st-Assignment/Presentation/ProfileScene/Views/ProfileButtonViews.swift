@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum ProfileButtonView {
+enum ProfileButtonViews {
     case chat(title: String)
     case edit(title: String)
     case story(title: String)

@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: ProfileViewModel!
@@ -35,14 +35,25 @@ class ProfileViewController: UIViewController {
         $0.backgroundColor = .white
     }
     
-    let chatButtonView = ProfileButtonView.chat(title: "나와의 채팅")
-        .build()
+    private let chatButtonView = ProfileButtonViews.chat(title: "나와의 채팅").build()
+    
+    private let editButtonView = ProfileButtonViews.edit(title: "프로필 편집").build()
+    
+    private let storyButtonView = ProfileButtonViews.story(title: "카카오스토리").build()
+    
+    private lazy var buttonStackView = UIStackView(
+        arrangedSubviews: [chatButtonView, editButtonView, storyButtonView]
+    ).then {
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+    }
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         setLayout()
+        setGesture()
         bind()
     }
 }
@@ -53,7 +64,7 @@ extension ProfileViewController {
     }
     
     private func setLayout() {
-        view.addSubviews(cancelButton, userImageView, userNameLabel, dividerView)
+        view.addSubviews(cancelButton, userImageView, userNameLabel, dividerView, buttonStackView)
         
         cancelButton.snp.makeConstraints { make in
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(18)
@@ -61,7 +72,7 @@ extension ProfileViewController {
         }
         userImageView.snp.makeConstraints { make in
             make.centerX.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(202)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(200)
             make.width.height.equalTo(96)
         }
         userNameLabel.snp.makeConstraints { make in
@@ -73,11 +84,23 @@ extension ProfileViewController {
             make.top.equalTo(userNameLabel.snp.bottom).offset(42)
             make.height.equalTo(1)
         }
-        
-        view.addSubview(chatButtonView)
-        chatButtonView.snp.makeConstraints { make in
-            make.leading.bottom.equalTo(view.safeAreaLayoutGuide)
-            make.width.height.equalTo(96)
+        buttonStackView.snp.makeConstraints { make in
+            make.top.equalTo(dividerView.snp.bottom).offset(12)
+            make.centerX.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(278)
+            make.height.equalTo(72)
+        }
+    }
+    
+    private func setGesture() {
+        setTapGesture()
+    }
+    
+    private func setTapGesture() {
+        buttonStackView.arrangedSubviews.forEach {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(profileButtonDidTap(_:)))
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(tap)
         }
     }
     
@@ -88,5 +111,18 @@ extension ProfileViewController {
     // MARK: - Actions
     @objc private func cancelButtonDidTap() {
         self.dismiss(animated: true)
+    }
+        
+    @objc private func profileButtonDidTap(_ sender: UITapGestureRecognizer) {
+        switch sender.view {
+        case chatButtonView:
+            print("chat button did tap")
+        case editButtonView:
+            print("edit button did tap")
+        case storyButtonView:
+            print("story button did tap")
+        default:
+            print("Tap not detected")
+        }
     }
 }

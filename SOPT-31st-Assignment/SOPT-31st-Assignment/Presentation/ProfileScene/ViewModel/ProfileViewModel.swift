@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProfileViewModel: ViewModelType {
+final class ProfileViewModel: ViewModelType {
 
     var userModel: UserModel
     

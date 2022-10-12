@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderView: UIView {
+final class HeaderView: UIView {
     
     // MARK: - UI
     private let titleLabel = UILabel().then {

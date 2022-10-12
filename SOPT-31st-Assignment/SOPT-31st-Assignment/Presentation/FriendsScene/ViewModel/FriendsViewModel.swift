@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class FriendsViewModel: ViewModelType {
+final class FriendsViewModel: ViewModelType {
     var userModel: UserModel
     
     init(userModel: UserModel) {

@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class FriendsViewController: UIViewController {
+final class FriendsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: FriendsViewModel!
     private var cancellable: Set<AnyCancellable> = []
