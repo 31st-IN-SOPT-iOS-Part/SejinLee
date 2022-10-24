@@ -12,6 +12,8 @@ protocol ModuleFactoryProtocol {
     func makeSignUpViewConroller() -> SignUpViewController
     func makeAuthCompleteViewController(emailOrPhoneNumber: String,
                                         password: String) -> AuthCompleteViewController
+    func makeFriendsViewController(userModel: UserModel) -> FriendsViewController
+    func makeProfileViewController(userModel: UserModel) -> ProfileViewController
 }
 
 final class ModuleFactory: ModuleFactoryProtocol {
@@ -42,5 +44,19 @@ final class ModuleFactory: ModuleFactoryProtocol {
         authCompleteViewController.viewModel = viewModel
         
         return authCompleteViewController
+    }
+    
+    func makeFriendsViewController(userModel: UserModel) -> FriendsViewController {
+        let viewModel = FriendsViewModel(userModel: userModel)
+        let friendsViewController = FriendsViewController()
+        friendsViewController.viewModel = viewModel
+        return friendsViewController
+    }
+    
+    func makeProfileViewController(userModel: UserModel) -> ProfileViewController {
+        let viewModel = ProfileViewModel(userModel: userModel)
+        let profileViewController = ProfileViewController()
+        profileViewController.viewModel = viewModel
+        return profileViewController
     }
 }
