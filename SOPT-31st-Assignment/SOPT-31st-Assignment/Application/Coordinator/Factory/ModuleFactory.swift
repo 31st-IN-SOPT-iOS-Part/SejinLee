@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ModuleFactoryProtocol {
+    func makeKakaoTabBarController() -> KakaoTabbarController
     func makeLoginViewController() -> LoginViewController
     func makeSignUpViewConroller() -> SignUpViewController
     func makeAuthCompleteViewController(emailOrPhoneNumber: String,
@@ -19,6 +20,12 @@ protocol ModuleFactoryProtocol {
 final class ModuleFactory: ModuleFactoryProtocol {
     static let shared = ModuleFactory()
     private init() {}
+    
+    func makeKakaoTabBarController() -> KakaoTabbarController {
+        let tabBarController = KakaoTabbarController()
+        
+        return tabBarController
+    }
     
     func makeLoginViewController() -> LoginViewController {
         let loginViewController = LoginViewController()

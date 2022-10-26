@@ -15,8 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let loginViewController = ModuleFactory.shared.makeLoginViewController()
-        window.rootViewController = UINavigationController(rootViewController: loginViewController)
+        let loginViewController = ModuleFactory.shared.makeKakaoTabBarController()
+        let nav = UINavigationController(rootViewController: loginViewController)
+        nav.navigationBar.isHidden = true
+        window.rootViewController = nav
         window.makeKeyAndVisible()
         self.window = window
     }

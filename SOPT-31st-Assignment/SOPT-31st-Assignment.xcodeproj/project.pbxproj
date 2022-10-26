@@ -26,6 +26,7 @@
 		CE8C82D828ED1E5000E384BF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82D728ED1E5000E384BF /* LoginViewModel.swift */; };
 		CE8C82E028ED3EE300E384BF /* AuthCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */; };
 		CE8C82E228ED3F4200E384BF /* AuthCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */; };
+		CEC4E349290969A400F37FAB /* KakaoTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */; };
 		CEDF975C28F6977A00EE8B25 /* ProfileButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */; };
 		CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF31D0628F161B70027736A /* ViewModelType.swift */; };
 		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
@@ -62,6 +63,7 @@
 		CE8C82D728ED1E5000E384BF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewController.swift; sourceTree = "<group>"; };
 		CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewModel.swift; sourceTree = "<group>"; };
+		CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTabbarController.swift; sourceTree = "<group>"; };
 		CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonViews.swift; sourceTree = "<group>"; };
 		CEF31D0628F161B70027736A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		CE036BE828EB249000DB03EE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4E3472909699400F37FAB /* TabBar */,
 				CE036BF028EB283600DB03EE /* LoginScene */,
 				CE036BF128EB284A00DB03EE /* SignUpScene */,
 				CE8C82DB28ED3E7700E384BF /* AuthCompleteScene */,
@@ -432,6 +435,14 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		CEC4E3472909699400F37FAB /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		CEF31D0528F1612A0027736A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6548A328E9C69B005A820B /* LoginViewController.swift in Sources */,
+				CEC4E349290969A400F37FAB /* KakaoTabbarController.swift in Sources */,
 				CE8297BB28F5402D00443477 /* HeaderView.swift in Sources */,
 				CEFC479A28EC153900D5B09C /* AuthTextFieldView.swift in Sources */,
 				CEDF975C28F6977A00EE8B25 /* ProfileButtonViews.swift in Sources */,
