@@ -12,11 +12,13 @@ final class FriendsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: FriendsViewModel!
     private var cancellable: Set<AnyCancellable> = []
+    var viewWillAppear = PassthroughSubject<Void, Never>()
+    private var friendsList = [FriendModel]()
 
     // MARK: - UI
     private let headerView = HeaderView(title: "친구")
     
-    private let friendsTableView = UITableView().then {
+    private let friendsTableView = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
         $0.setValue(0, forKey: "sectionHeaderTopPadding")
@@ -30,7 +32,12 @@ final class FriendsViewController: UIViewController {
         setLayout()
         setDelegate()
         register()
-        bind()
+        bindViewModels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewWillAppear.send()
     }
 }
 
@@ -60,12 +67,23 @@ extension FriendsViewController {
     
     func register() {
         friendsTableView.register(FriendsListTableViewHeader.self, forHeaderFooterViewReuseIdentifier: FriendsListTableViewHeader.className)
+        friendsTableView.register(FriendsListTableViewCell.self, forCellReuseIdentifier: FriendsListTableViewCell.className)
     }
     
-    func bind() {
+    func bindViewModels() {
+        let input = FriendsViewModel.Input(viewWillAppear: viewWillAppear.eraseToAnyPublisher())
+        let output = viewModel.transform(from: input)
         
+        output.friendsList
+            .receive(on: RunLoop.main)
+            .sink { event in
+                print("event: \(event)")
+            } receiveValue: { [weak self] value in
+                guard let self = self else { return }
+                self.friendsList = value
+                self.friendsTableView.reloadData()
+            }.store(in: &self.cancellable)
     }
-    
     
     // MARK: - Actions
     @objc func userInfoViewDidTap() {
@@ -91,10 +109,17 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return friendsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsListTableViewCell.className, for: indexPath)
+                as? FriendsListTableViewCell else { return UITableViewCell() }
+        cell.initCell(model: friendsList[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }

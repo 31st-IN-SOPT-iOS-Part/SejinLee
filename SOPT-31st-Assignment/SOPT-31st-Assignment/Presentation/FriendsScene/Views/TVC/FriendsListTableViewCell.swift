@@ -1,5 +1,5 @@
 //
-//  FriendsListTableViewHeader.swift
+//  FriendsListTableViewCell.swift
 //  SOPT-31st-Assignment
 //
 //  Created by sejin on 2022/10/26.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class FriendsListTableViewHeader: UITableViewHeaderFooterView {
-    
+final class FriendsListTableViewCell: UITableViewCell {
+
     // MARK: - Properties
     
     // MARK: - UI Components
@@ -19,7 +19,7 @@ final class FriendsListTableViewHeader: UITableViewHeaderFooterView {
     }
     
     private let userNameLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        $0.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         $0.textColor = .black
     }
     
@@ -35,14 +35,10 @@ final class FriendsListTableViewHeader: UITableViewHeaderFooterView {
         $0.spacing = 6
     }
     
-    private let dividerView = UIView().then {
-        $0.backgroundColor = .systemGray6
-    }
-    
     // MARK: - Initialization
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setUI()
         self.setLayout()
     }
@@ -54,37 +50,29 @@ final class FriendsListTableViewHeader: UITableViewHeaderFooterView {
 
 // MARK: - Methods
 
-extension FriendsListTableViewHeader {
-    
-    func initHeader(model: FriendModel) {
+extension FriendsListTableViewCell {
+    func initCell(model: FriendModel) {
         userImageView.image = UIImage(named: model.profileImage)
         userNameLabel.text = model.name
         stateMessageLabel.text = model.stateMessage
     }
-
     
     private func setUI() {
         contentView.backgroundColor = .white
     }
     
     private func setLayout() {
-        addSubviews(userImageView, infoStackView, dividerView)
+        addSubviews(userImageView, infoStackView)
         
         userImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
             make.centerY.equalToSuperview()
-            make.width.height.equalTo(58)
+            make.width.height.equalTo(42)
         }
         
         infoStackView.snp.makeConstraints { make in
             make.leading.equalTo(userImageView.snp.trailing).offset(11)
             make.centerY.equalToSuperview()
-        }
-        
-        dividerView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview()
-            make.height.equalTo(1)
         }
     }
 }
