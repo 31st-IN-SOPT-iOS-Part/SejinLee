@@ -28,7 +28,7 @@ final class FriendsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        setUI()
         setLayout()
         setDelegate()
         register()
@@ -42,11 +42,11 @@ final class FriendsViewController: UIViewController {
 }
 
 extension FriendsViewController {
-    func configureUI() {
+    private func setUI() {
         view.backgroundColor = .white
     }
     
-    func setLayout() {
+    private func setLayout() {
         view.addSubviews(headerView, friendsTableView)
         
         headerView.snp.makeConstraints { make in
@@ -60,17 +60,17 @@ extension FriendsViewController {
         }
     }
     
-    func setDelegate() {
+    private func setDelegate() {
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
     }
     
-    func register() {
+    private func register() {
         friendsTableView.register(FriendsListTableViewHeader.self, forHeaderFooterViewReuseIdentifier: FriendsListTableViewHeader.className)
         friendsTableView.register(FriendsListTableViewCell.self, forCellReuseIdentifier: FriendsListTableViewCell.className)
     }
     
-    func bindViewModels() {
+    private func bindViewModels() {
         let input = FriendsViewModel.Input(viewWillAppear: viewWillAppear.eraseToAnyPublisher())
         let output = viewModel.transform(from: input)
         

@@ -54,7 +54,7 @@ extension KakaoTabbarController : UITabBarControllerDelegate {
         let friendNavigationController =  UINavigationController(rootViewController: friendViewController)
         friendNavigationController.navigationBar.isHidden = true
         
-        let chatViewController = UIViewController()
+        let chatViewController = ModuleFactory.shared.makeChatListViewController()
         let chatNavigationController = UINavigationController(rootViewController: chatViewController)
         chatNavigationController.navigationBar.isHidden = true
         

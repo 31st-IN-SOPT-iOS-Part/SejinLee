@@ -31,6 +31,11 @@
 		CEC4E34E29096CFA00F37FAB /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34D29096CFA00F37FAB /* getClassName.swift */; };
 		CEC4E3502909707500F37FAB /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34F2909707500F37FAB /* FriendModel.swift */; };
 		CEC4E3522909750500F37FAB /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E3512909750500F37FAB /* FriendsListTableViewCell.swift */; };
+		CEC4E3582909812B00F37FAB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E3572909812B00F37FAB /* ChatListViewController.swift */; };
+		CEC4E35A2909815900F37FAB /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E3592909815900F37FAB /* ChatListViewModel.swift */; };
+		CEC4E35C2909818000F37FAB /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E35B2909818000F37FAB /* ChatModel.swift */; };
+		CEC4E35F29098A5C00F37FAB /* ChatListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E35E29098A5C00F37FAB /* ChatListCollectionViewCell.swift */; };
+		CEC4E36229098DAD00F37FAB /* ChatListCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E36129098DAD00F37FAB /* ChatListCollectionViewHeader.swift */; };
 		CEDF975C28F6977A00EE8B25 /* ProfileButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */; };
 		CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF31D0628F161B70027736A /* ViewModelType.swift */; };
 		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
@@ -72,6 +77,11 @@
 		CEC4E34D29096CFA00F37FAB /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
 		CEC4E34F2909707500F37FAB /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		CEC4E3512909750500F37FAB /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
+		CEC4E3572909812B00F37FAB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		CEC4E3592909815900F37FAB /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		CEC4E35B2909818000F37FAB /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		CEC4E35E29098A5C00F37FAB /* ChatListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEC4E36129098DAD00F37FAB /* ChatListCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCollectionViewHeader.swift; sourceTree = "<group>"; };
 		CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonViews.swift; sourceTree = "<group>"; };
 		CEF31D0628F161B70027736A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
@@ -278,6 +288,7 @@
 			children = (
 				CE8C82D528ED1DD300E384BF /* UserModel.swift */,
 				CEC4E34F2909707500F37FAB /* FriendModel.swift */,
+				CEC4E35B2909818000F37FAB /* ChatModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,6 +347,7 @@
 				CE036BE428EB247200DB03EE /* Global */,
 				CE036BE928EB249A00DB03EE /* Application */,
 				CE036BE828EB249000DB03EE /* Presentation */,
+				CEC4E353290980E400F37FAB /* ChatScene */,
 				CE036BE728EB248B00DB03EE /* Domain */,
 				CE036BE628EB248800DB03EE /* Data */,
 				CE036BE528EB247E00DB03EE /* Utils */,
@@ -463,6 +475,49 @@
 			path = TVC;
 			sourceTree = "<group>";
 		};
+		CEC4E353290980E400F37FAB /* ChatScene */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E3562909810900F37FAB /* Views */,
+				CEC4E3552909810600F37FAB /* ViewModel */,
+				CEC4E3542909810300F37FAB /* VC */,
+			);
+			path = ChatScene;
+			sourceTree = "<group>";
+		};
+		CEC4E3542909810300F37FAB /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E3572909812B00F37FAB /* ChatListViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		CEC4E3552909810600F37FAB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E3592909815900F37FAB /* ChatListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEC4E3562909810900F37FAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E35D29098A1000F37FAB /* CVC */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEC4E35D29098A1000F37FAB /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E35E29098A5C00F37FAB /* ChatListCollectionViewCell.swift */,
+				CEC4E36129098DAD00F37FAB /* ChatListCollectionViewHeader.swift */,
+			);
+			path = CVC;
+			sourceTree = "<group>";
+		};
 		CEF31D0528F1612A0027736A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,19 +615,24 @@
 				CEDF975C28F6977A00EE8B25 /* ProfileButtonViews.swift in Sources */,
 				CE39FD9228EE8DF500ABEC63 /* SignUpViewController.swift in Sources */,
 				CE8C82E228ED3F4200E384BF /* AuthCompleteViewModel.swift in Sources */,
+				CEC4E35C2909818000F37FAB /* ChatModel.swift in Sources */,
 				CE39FD9628EE962E00ABEC63 /* ModuleFactory.swift in Sources */,
+				CEC4E3582909812B00F37FAB /* ChatListViewController.swift in Sources */,
 				CE8C82E028ED3EE300E384BF /* AuthCompleteViewController.swift in Sources */,
 				CE8297B628F53EF800443477 /* ProfileViewController.swift in Sources */,
 				CEC4E34E29096CFA00F37FAB /* getClassName.swift in Sources */,
+				CEC4E36229098DAD00F37FAB /* ChatListCollectionViewHeader.swift in Sources */,
 				CE8C82D628ED1DD300E384BF /* UserModel.swift in Sources */,
 				CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */,
 				CE65489F28E9C69B005A820B /* AppDelegate.swift in Sources */,
+				CEC4E35A2909815900F37FAB /* ChatListViewModel.swift in Sources */,
 				CE6548A128E9C69B005A820B /* SceneDelegate.swift in Sources */,
 				CE8297AE28F53E6F00443477 /* FriendsViewController.swift in Sources */,
 				CE8297B028F53E8700443477 /* FriendsViewModel.swift in Sources */,
 				CE8297B928F53F0600443477 /* ProfileViewModel.swift in Sources */,
 				CE39FD9428EE911300ABEC63 /* SignUpViewModel.swift in Sources */,
 				CEC4E3502909707500F37FAB /* FriendModel.swift in Sources */,
+				CEC4E35F29098A5C00F37FAB /* ChatListCollectionViewCell.swift in Sources */,
 				CE8C82D828ED1E5000E384BF /* LoginViewModel.swift in Sources */,
 				CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */,
 				CEC4E34C29096C4900F37FAB /* FriendsListTableViewHeader.swift in Sources */,

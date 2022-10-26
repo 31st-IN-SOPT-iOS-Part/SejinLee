@@ -15,6 +15,7 @@ protocol ModuleFactoryProtocol {
                                         password: String) -> AuthCompleteViewController
     func makeFriendsViewController(userModel: UserModel) -> FriendsViewController
     func makeProfileViewController(userModel: FriendModel) -> ProfileViewController
+    func makeChatListViewController() -> ChatListViewController
 }
 
 final class ModuleFactory: ModuleFactoryProtocol {
@@ -65,5 +66,12 @@ final class ModuleFactory: ModuleFactoryProtocol {
         let profileViewController = ProfileViewController()
         profileViewController.viewModel = viewModel
         return profileViewController
+    }
+    
+    func makeChatListViewController() -> ChatListViewController {
+        let viewModel = ChatListViewModel()
+        let chatListViewController = ChatListViewController()
+        chatListViewController.viewModel = viewModel
+        return chatListViewController
     }
 }
