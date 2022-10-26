@@ -27,6 +27,9 @@
 		CE8C82E028ED3EE300E384BF /* AuthCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */; };
 		CE8C82E228ED3F4200E384BF /* AuthCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */; };
 		CEC4E349290969A400F37FAB /* KakaoTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */; };
+		CEC4E34C29096C4900F37FAB /* FriendsListTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34B29096C4900F37FAB /* FriendsListTableViewHeader.swift */; };
+		CEC4E34E29096CFA00F37FAB /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34D29096CFA00F37FAB /* getClassName.swift */; };
+		CEC4E3502909707500F37FAB /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34F2909707500F37FAB /* FriendModel.swift */; };
 		CEDF975C28F6977A00EE8B25 /* ProfileButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */; };
 		CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF31D0628F161B70027736A /* ViewModelType.swift */; };
 		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
@@ -64,6 +67,9 @@
 		CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewController.swift; sourceTree = "<group>"; };
 		CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewModel.swift; sourceTree = "<group>"; };
 		CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTabbarController.swift; sourceTree = "<group>"; };
+		CEC4E34B29096C4900F37FAB /* FriendsListTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewHeader.swift; sourceTree = "<group>"; };
+		CEC4E34D29096CFA00F37FAB /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
+		CEC4E34F2909707500F37FAB /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonViews.swift; sourceTree = "<group>"; };
 		CEF31D0628F161B70027736A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 			children = (
 				CE036C1B28EB2A9C00DB03EE /* .gitkeep */,
 				CEFC479728EC0D7B00D5B09C /* addSubviews.swift */,
+				CEC4E34D29096CFA00F37FAB /* getClassName.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -268,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8C82D528ED1DD300E384BF /* UserModel.swift */,
+				CEC4E34F2909707500F37FAB /* FriendModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +371,7 @@
 		CE8297AC28F53E5A00443477 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4E34A29096C2700F37FAB /* TVC */,
 				CE8297BA28F5402D00443477 /* HeaderView.swift */,
 			);
 			path = Views;
@@ -441,6 +450,14 @@
 				CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CEC4E34A29096C2700F37FAB /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E34B29096C4900F37FAB /* FriendsListTableViewHeader.swift */,
+			);
+			path = TVC;
 			sourceTree = "<group>";
 		};
 		CEF31D0528F1612A0027736A /* Protocols */ = {
@@ -542,6 +559,7 @@
 				CE39FD9628EE962E00ABEC63 /* ModuleFactory.swift in Sources */,
 				CE8C82E028ED3EE300E384BF /* AuthCompleteViewController.swift in Sources */,
 				CE8297B628F53EF800443477 /* ProfileViewController.swift in Sources */,
+				CEC4E34E29096CFA00F37FAB /* getClassName.swift in Sources */,
 				CE8C82D628ED1DD300E384BF /* UserModel.swift in Sources */,
 				CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */,
 				CE65489F28E9C69B005A820B /* AppDelegate.swift in Sources */,
@@ -550,8 +568,10 @@
 				CE8297B028F53E8700443477 /* FriendsViewModel.swift in Sources */,
 				CE8297B928F53F0600443477 /* ProfileViewModel.swift in Sources */,
 				CE39FD9428EE911300ABEC63 /* SignUpViewModel.swift in Sources */,
+				CEC4E3502909707500F37FAB /* FriendModel.swift in Sources */,
 				CE8C82D828ED1E5000E384BF /* LoginViewModel.swift in Sources */,
 				CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */,
+				CEC4E34C29096C4900F37FAB /* FriendsListTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

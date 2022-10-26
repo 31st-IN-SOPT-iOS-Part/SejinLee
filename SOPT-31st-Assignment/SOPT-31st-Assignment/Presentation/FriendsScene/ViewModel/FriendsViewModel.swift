@@ -26,7 +26,7 @@ final class FriendsViewModel: ViewModelType {
         return output
     }
     
-    func getUserName() -> String {
-        return userModel.emailOrPhoneNumber
+    func getUserModel() -> FriendModel {
+        return FriendModel(profileImage: "imageFriend", name: userModel.emailOrPhoneNumber, stateMessage: "상태메세지는 여기에")
     }
 }
