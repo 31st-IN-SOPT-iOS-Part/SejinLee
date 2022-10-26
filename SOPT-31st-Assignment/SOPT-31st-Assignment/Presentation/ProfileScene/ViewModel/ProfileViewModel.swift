@@ -9,9 +9,9 @@ import Foundation
 
 final class ProfileViewModel: ViewModelType {
 
-    var userModel: UserModel
+    var userModel: FriendModel
     
-    init(userModel: UserModel) {
+    init(userModel: FriendModel) {
         self.userModel = userModel
     }
     
@@ -28,6 +28,10 @@ final class ProfileViewModel: ViewModelType {
     }
     
     func getUserName() -> String {
-        return userModel.emailOrPhoneNumber
+        return userModel.name
+    }
+    
+    func getUserImage() -> String {
+        return userModel.profileImage
     }
 }

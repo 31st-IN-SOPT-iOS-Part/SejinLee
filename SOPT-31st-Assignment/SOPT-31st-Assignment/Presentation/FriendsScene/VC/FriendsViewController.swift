@@ -84,13 +84,7 @@ extension FriendsViewController {
                 self.friendsTableView.reloadData()
             }.store(in: &self.cancellable)
     }
-    
-    // MARK: - Actions
-    @objc func userInfoViewDidTap() {
-        let profileViewController = ModuleFactory.shared.makeProfileViewController(userModel: viewModel.userModel)
-        profileViewController.modalPresentationStyle = .fullScreen
-        self.present(profileViewController, animated: true)
-    }
+
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -121,5 +115,11 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let profileViewController = ModuleFactory.shared.makeProfileViewController(userModel: self.friendsList[indexPath.row])
+        profileViewController.modalPresentationStyle = .fullScreen
+        self.present(profileViewController, animated: true)
     }
 }
