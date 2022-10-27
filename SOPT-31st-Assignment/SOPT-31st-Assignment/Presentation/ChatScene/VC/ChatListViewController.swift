@@ -26,7 +26,8 @@ final class ChatListViewController: UIViewController {
         .setSubtitle(subTitle: "오픈채팅")
         .setSubButton(image: "iconPlus") {[weak self] _ in
             guard let self = self else { return }
-            let vc = ModuleFactory.shared.makeLoginViewController()
+            let vc = ModuleFactory.shared.makeImagePickerViewContrller()
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
     

@@ -16,6 +16,7 @@ protocol ModuleFactoryProtocol {
     func makeFriendsViewController(userModel: UserModel) -> FriendsViewController
     func makeProfileViewController(userModel: FriendModel) -> ProfileViewController
     func makeChatListViewController() -> ChatListViewController
+    func makeImagePickerViewContrller() -> ImagePickerViewController
 }
 
 final class ModuleFactory: ModuleFactoryProtocol {
@@ -73,5 +74,12 @@ final class ModuleFactory: ModuleFactoryProtocol {
         let chatListViewController = ChatListViewController()
         chatListViewController.viewModel = viewModel
         return chatListViewController
+    }
+    
+    func makeImagePickerViewContrller() -> ImagePickerViewController {
+        let viewModel = ImagePickerViewModel()
+        let imagePickerViewController = ImagePickerViewController()
+        imagePickerViewController.viewModel = viewModel
+        return imagePickerViewController
     }
 }
