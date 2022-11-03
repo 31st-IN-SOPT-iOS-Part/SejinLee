@@ -105,6 +105,7 @@ extension ProfileViewController {
     }
     
     private func bind() {
+        userImageView.image = UIImage(named: viewModel.getUserImage())
         userNameLabel.text = viewModel.getUserName()
     }
     
