@@ -17,6 +17,10 @@ final class ImagePickerViewController: UIViewController {
     private let layout = UICollectionViewFlowLayout().then {
         $0.scrollDirection = .vertical
     }
+    private let itemSpacing: CGFloat = 9
+    private let lineSpaceing: CGFloat = 7
+    private var images = [String]()
+
     
     // MARK: - UI Components
     
@@ -94,7 +98,7 @@ extension ImagePickerViewController {
     }
     
     private func register() {
-        
+        imageListCollectionView.register(ImageListCollectionViewCell.self, forCellWithReuseIdentifier: ImageListCollectionViewCell.className)
     }
     
     @objc private func dismissVC() {
@@ -111,6 +115,23 @@ extension ImagePickerViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageListCollectionViewCell.className, for: indexPath)
+                as? ImageListCollectionViewCell else { return UICollectionViewCell() }
+//        cell.initCell(model: chatList[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (UIScreen.main.bounds.width - 2*itemSpacing) / 3
+        let height = width
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return lineSpaceing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return itemSpacing
     }
 }
