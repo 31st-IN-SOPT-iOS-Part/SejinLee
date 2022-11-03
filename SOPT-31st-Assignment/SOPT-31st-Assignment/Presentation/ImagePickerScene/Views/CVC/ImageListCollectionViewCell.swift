@@ -32,6 +32,10 @@ final class ImageListCollectionViewCell: UICollectionViewCell {
 
 extension ImageListCollectionViewCell {
     
+    func initCell(imageName: String) {
+        self.imageView.image = UIImage(named: imageName)
+    }
+    
     private func setUI() {
         contentView.backgroundColor = .blue
     }

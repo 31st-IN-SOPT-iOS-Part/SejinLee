@@ -13,13 +13,15 @@ final class ImagePickerViewController: UIViewController {
     // MARK: - Properties
     
     var viewModel: ImagePickerViewModel!
-    private var cancellable: Set<AnyCancellable> = []
+    private var cancelBag = Set<AnyCancellable>()
     private let layout = UICollectionViewFlowLayout().then {
         $0.scrollDirection = .vertical
     }
     private let itemSpacing: CGFloat = 9
     private let lineSpaceing: CGFloat = 7
     private var images = [String]()
+    private var viewWillAppear = PassthroughSubject<Void, Never>()
+
 
     
     // MARK: - UI Components
@@ -70,6 +72,12 @@ final class ImagePickerViewController: UIViewController {
         self.setLayout()
         self.setDelegate()
         self.register()
+        self.bindViewModels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewWillAppear.send()
     }
 }
 
@@ -101,6 +109,21 @@ extension ImagePickerViewController {
         imageListCollectionView.register(ImageListCollectionViewCell.self, forCellWithReuseIdentifier: ImageListCollectionViewCell.className)
     }
     
+    private func bindViewModels() {
+        let input = ImagePickerViewModel.Input(viewWillAppear: self.viewWillAppear.eraseToAnyPublisher())
+        
+        let output = viewModel.transform(from: input)
+    
+        output.imageList
+            .map { $0.map {$0.imageName} }
+            .sink { event in
+                print(event)
+            } receiveValue: { value in
+                self.images = value
+                self.imageListCollectionView.reloadData()
+            }.store(in: &self.cancelBag)
+    }
+    
     @objc private func dismissVC() {
         self.dismiss(animated: true)
     }
@@ -111,13 +134,13 @@ extension ImagePickerViewController {
 
 extension ImagePickerViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageListCollectionViewCell.className, for: indexPath)
                 as? ImageListCollectionViewCell else { return UICollectionViewCell() }
-//        cell.initCell(model: chatList[indexPath.row])
+        cell.initCell(imageName: images[indexPath.row])
         return cell
     }
     
