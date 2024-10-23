@@ -12,74 +12,113 @@ final class FriendsViewController: UIViewController {
     // MARK: - Properties
     var viewModel: FriendsViewModel!
     private var cancellable: Set<AnyCancellable> = []
+    var viewWillAppear = PassthroughSubject<Void, Never>()
+    private var friendsList = [FriendModel]()
 
     // MARK: - UI
     private let headerView = HeaderView(title: "친구")
     
-    private let userImageView = UIImageView().then {
-        $0.image = UIImage(named: "friendtab_profileImg")
-        $0.contentMode = .scaleAspectFill
+    private let friendsTableView = UITableView(frame: .zero, style: .grouped).then {
+        $0.backgroundColor = .clear
+        $0.separatorStyle = .none
+        $0.setValue(0, forKey: "sectionHeaderTopPadding")
     }
-    
-    private let userNameLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        $0.textColor = .black
-    }
-    
-    private let userInfoView = UIView()
-    
+        
     // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        setUI()
         setLayout()
-        setGesture()
-        bind()
+        setDelegate()
+        register()
+        bindViewModels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewWillAppear.send()
     }
 }
 
 extension FriendsViewController {
-    func configureUI() {
+    private func setUI() {
         view.backgroundColor = .white
     }
     
-    func setLayout() {
-        view.addSubviews(headerView, userInfoView)
+    private func setLayout() {
+        view.addSubviews(headerView, friendsTableView)
         
         headerView.snp.makeConstraints { make in
             make.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(52)
         }
         
-        userInfoView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom).offset(15)
-            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(60)
+        friendsTableView.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom)
+            make.leading.bottom.trailing.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    private func setDelegate() {
+        friendsTableView.delegate = self
+        friendsTableView.dataSource = self
+    }
+    
+    private func register() {
+        friendsTableView.register(FriendsListTableViewHeader.self, forHeaderFooterViewReuseIdentifier: FriendsListTableViewHeader.className)
+        friendsTableView.register(FriendsListTableViewCell.self, forCellReuseIdentifier: FriendsListTableViewCell.className)
+    }
+    
+    private func bindViewModels() {
+        let input = FriendsViewModel.Input(viewWillAppear: viewWillAppear.eraseToAnyPublisher())
+        let output = viewModel.transform(from: input)
         
-        userInfoView.addSubviews(userImageView, userNameLabel)
-        userImageView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(14)
-        }
-        userNameLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalTo(userImageView.snp.trailing).offset(14)
-        }
+        output.friendsList
+            .receive(on: RunLoop.main)
+            .sink { event in
+                print("event: \(event)")
+            } receiveValue: { [weak self] value in
+                guard let self = self else { return }
+                self.friendsList = value
+                self.friendsTableView.reloadData()
+            }.store(in: &self.cancellable)
+    }
+
+}
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
+extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: FriendsListTableViewHeader.className)
+                as? FriendsListTableViewHeader else { return UIView() }
+        headerView.initHeader(model: viewModel.getUserModel())
+        return headerView
     }
     
-    func bind() {
-        userNameLabel.text = viewModel.getUserName()
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 73
     }
     
-    func setGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(userInfoViewDidTap))
-        userInfoView.addGestureRecognizer(tap)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friendsList.count
     }
     
-    // MARK: - Actions
-    @objc func userInfoViewDidTap() {
-        let profileViewController = ModuleFactory.shared.makeProfileViewController(userModel: viewModel.userModel)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsListTableViewCell.className, for: indexPath)
+                as? FriendsListTableViewCell else { return UITableViewCell() }
+        cell.initCell(model: friendsList[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let profileViewController = ModuleFactory.shared.makeProfileViewController(userModel: self.friendsList[indexPath.row])
         profileViewController.modalPresentationStyle = .fullScreen
         self.present(profileViewController, animated: true)
     }

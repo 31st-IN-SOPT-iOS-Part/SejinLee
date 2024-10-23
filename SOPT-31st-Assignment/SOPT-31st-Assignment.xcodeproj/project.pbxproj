@@ -26,7 +26,21 @@
 		CE8C82D828ED1E5000E384BF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82D728ED1E5000E384BF /* LoginViewModel.swift */; };
 		CE8C82E028ED3EE300E384BF /* AuthCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */; };
 		CE8C82E228ED3F4200E384BF /* AuthCompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */; };
+		CE9E90CE290A42210096C5C0 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E90CD290A42210096C5C0 /* ImagePickerViewController.swift */; };
+		CE9E90D0290A424C0096C5C0 /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E90CF290A424C0096C5C0 /* ImagePickerViewModel.swift */; };
+		CEC4E349290969A400F37FAB /* KakaoTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */; };
+		CEC4E34C29096C4900F37FAB /* FriendsListTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34B29096C4900F37FAB /* FriendsListTableViewHeader.swift */; };
+		CEC4E34E29096CFA00F37FAB /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34D29096CFA00F37FAB /* getClassName.swift */; };
+		CEC4E3502909707500F37FAB /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E34F2909707500F37FAB /* FriendModel.swift */; };
+		CEC4E3522909750500F37FAB /* FriendsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E3512909750500F37FAB /* FriendsListTableViewCell.swift */; };
+		CEC4E3582909812B00F37FAB /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E3572909812B00F37FAB /* ChatListViewController.swift */; };
+		CEC4E35A2909815900F37FAB /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E3592909815900F37FAB /* ChatListViewModel.swift */; };
+		CEC4E35C2909818000F37FAB /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E35B2909818000F37FAB /* ChatModel.swift */; };
+		CEC4E35F29098A5C00F37FAB /* ChatListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E35E29098A5C00F37FAB /* ChatListCollectionViewCell.swift */; };
+		CEC4E36229098DAD00F37FAB /* ChatListCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4E36129098DAD00F37FAB /* ChatListCollectionViewHeader.swift */; };
 		CEDF975C28F6977A00EE8B25 /* ProfileButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */; };
+		CEF21DF3291409EA00D421CF /* ImageListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF21DF2291409EA00D421CF /* ImageListCollectionViewCell.swift */; };
+		CEF21DF529140BBE00D421CF /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF21DF429140BBE00D421CF /* ImageModel.swift */; };
 		CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF31D0628F161B70027736A /* ViewModelType.swift */; };
 		CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479728EC0D7B00D5B09C /* addSubviews.swift */; };
 		CEFC479A28EC153900D5B09C /* AuthTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC479928EC153900D5B09C /* AuthTextFieldView.swift */; };
@@ -62,7 +76,21 @@
 		CE8C82D728ED1E5000E384BF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewController.swift; sourceTree = "<group>"; };
 		CE8C82E128ED3F4200E384BF /* AuthCompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompleteViewModel.swift; sourceTree = "<group>"; };
+		CE9E90CD290A42210096C5C0 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		CE9E90CF290A424C0096C5C0 /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
+		CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoTabbarController.swift; sourceTree = "<group>"; };
+		CEC4E34B29096C4900F37FAB /* FriendsListTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewHeader.swift; sourceTree = "<group>"; };
+		CEC4E34D29096CFA00F37FAB /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
+		CEC4E34F2909707500F37FAB /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		CEC4E3512909750500F37FAB /* FriendsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTableViewCell.swift; sourceTree = "<group>"; };
+		CEC4E3572909812B00F37FAB /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		CEC4E3592909815900F37FAB /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		CEC4E35B2909818000F37FAB /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		CEC4E35E29098A5C00F37FAB /* ChatListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEC4E36129098DAD00F37FAB /* ChatListCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCollectionViewHeader.swift; sourceTree = "<group>"; };
 		CEDF975B28F6977A00EE8B25 /* ProfileButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonViews.swift; sourceTree = "<group>"; };
+		CEF21DF2291409EA00D421CF /* ImageListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEF21DF429140BBE00D421CF /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		CEF31D0628F161B70027736A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		CEFC479728EC0D7B00D5B09C /* addSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubviews.swift; sourceTree = "<group>"; };
 		CEFC479928EC153900D5B09C /* AuthTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldView.swift; sourceTree = "<group>"; };
@@ -100,6 +128,7 @@
 			children = (
 				CE036C1B28EB2A9C00DB03EE /* .gitkeep */,
 				CEFC479728EC0D7B00D5B09C /* addSubviews.swift */,
+				CEC4E34D29096CFA00F37FAB /* getClassName.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -126,11 +155,14 @@
 		CE036BE828EB249000DB03EE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4E3472909699400F37FAB /* TabBar */,
 				CE036BF028EB283600DB03EE /* LoginScene */,
 				CE036BF128EB284A00DB03EE /* SignUpScene */,
 				CE8C82DB28ED3E7700E384BF /* AuthCompleteScene */,
 				CE8297A928F53E2A00443477 /* FriendsScene */,
 				CE8297B128F53EDC00443477 /* ProfileScene */,
+				CEC4E353290980E400F37FAB /* ChatScene */,
+				CE9E90C9290A41E40096C5C0 /* ImagePickerScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -265,6 +297,9 @@
 			isa = PBXGroup;
 			children = (
 				CE8C82D528ED1DD300E384BF /* UserModel.swift */,
+				CEC4E34F2909707500F37FAB /* FriendModel.swift */,
+				CEC4E35B2909818000F37FAB /* ChatModel.swift */,
+				CEF21DF429140BBE00D421CF /* ImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,6 +395,7 @@
 		CE8297AC28F53E5A00443477 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4E34A29096C2700F37FAB /* TVC */,
 				CE8297BA28F5402D00443477 /* HeaderView.swift */,
 			);
 			path = Views;
@@ -430,6 +466,108 @@
 				CE8C82DF28ED3EE300E384BF /* AuthCompleteViewController.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		CE9E90C9290A41E40096C5C0 /* ImagePickerScene */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E90CC290A42060096C5C0 /* Views */,
+				CE9E90CB290A42030096C5C0 /* ViewModel */,
+				CE9E90CA290A41FD0096C5C0 /* VC */,
+			);
+			path = ImagePickerScene;
+			sourceTree = "<group>";
+		};
+		CE9E90CA290A41FD0096C5C0 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E90CD290A42210096C5C0 /* ImagePickerViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		CE9E90CB290A42030096C5C0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E90CF290A424C0096C5C0 /* ImagePickerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE9E90CC290A42060096C5C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEF21DF1291409CB00D421CF /* CVC */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEC4E3472909699400F37FAB /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E348290969A400F37FAB /* KakaoTabbarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CEC4E34A29096C2700F37FAB /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E34B29096C4900F37FAB /* FriendsListTableViewHeader.swift */,
+				CEC4E3512909750500F37FAB /* FriendsListTableViewCell.swift */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		CEC4E353290980E400F37FAB /* ChatScene */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E3562909810900F37FAB /* Views */,
+				CEC4E3552909810600F37FAB /* ViewModel */,
+				CEC4E3542909810300F37FAB /* VC */,
+			);
+			path = ChatScene;
+			sourceTree = "<group>";
+		};
+		CEC4E3542909810300F37FAB /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E3572909812B00F37FAB /* ChatListViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		CEC4E3552909810600F37FAB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E3592909815900F37FAB /* ChatListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEC4E3562909810900F37FAB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E35D29098A1000F37FAB /* CVC */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CEC4E35D29098A1000F37FAB /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4E35E29098A5C00F37FAB /* ChatListCollectionViewCell.swift */,
+				CEC4E36129098DAD00F37FAB /* ChatListCollectionViewHeader.swift */,
+			);
+			path = CVC;
+			sourceTree = "<group>";
+		};
+		CEF21DF1291409CB00D421CF /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEF21DF2291409EA00D421CF /* ImageListCollectionViewCell.swift */,
+			);
+			path = CVC;
 			sourceTree = "<group>";
 		};
 		CEF31D0528F1612A0027736A /* Protocols */ = {
@@ -521,25 +659,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9E90D0290A424C0096C5C0 /* ImagePickerViewModel.swift in Sources */,
 				CE6548A328E9C69B005A820B /* LoginViewController.swift in Sources */,
+				CEC4E349290969A400F37FAB /* KakaoTabbarController.swift in Sources */,
 				CE8297BB28F5402D00443477 /* HeaderView.swift in Sources */,
+				CEC4E3522909750500F37FAB /* FriendsListTableViewCell.swift in Sources */,
 				CEFC479A28EC153900D5B09C /* AuthTextFieldView.swift in Sources */,
 				CEDF975C28F6977A00EE8B25 /* ProfileButtonViews.swift in Sources */,
+				CE9E90CE290A42210096C5C0 /* ImagePickerViewController.swift in Sources */,
 				CE39FD9228EE8DF500ABEC63 /* SignUpViewController.swift in Sources */,
 				CE8C82E228ED3F4200E384BF /* AuthCompleteViewModel.swift in Sources */,
+				CEC4E35C2909818000F37FAB /* ChatModel.swift in Sources */,
 				CE39FD9628EE962E00ABEC63 /* ModuleFactory.swift in Sources */,
+				CEC4E3582909812B00F37FAB /* ChatListViewController.swift in Sources */,
 				CE8C82E028ED3EE300E384BF /* AuthCompleteViewController.swift in Sources */,
 				CE8297B628F53EF800443477 /* ProfileViewController.swift in Sources */,
+				CEC4E34E29096CFA00F37FAB /* getClassName.swift in Sources */,
+				CEC4E36229098DAD00F37FAB /* ChatListCollectionViewHeader.swift in Sources */,
 				CE8C82D628ED1DD300E384BF /* UserModel.swift in Sources */,
 				CEFC479828EC0D7B00D5B09C /* addSubviews.swift in Sources */,
 				CE65489F28E9C69B005A820B /* AppDelegate.swift in Sources */,
+				CEC4E35A2909815900F37FAB /* ChatListViewModel.swift in Sources */,
 				CE6548A128E9C69B005A820B /* SceneDelegate.swift in Sources */,
+				CEF21DF529140BBE00D421CF /* ImageModel.swift in Sources */,
+				CEF21DF3291409EA00D421CF /* ImageListCollectionViewCell.swift in Sources */,
 				CE8297AE28F53E6F00443477 /* FriendsViewController.swift in Sources */,
 				CE8297B028F53E8700443477 /* FriendsViewModel.swift in Sources */,
 				CE8297B928F53F0600443477 /* ProfileViewModel.swift in Sources */,
 				CE39FD9428EE911300ABEC63 /* SignUpViewModel.swift in Sources */,
+				CEC4E3502909707500F37FAB /* FriendModel.swift in Sources */,
+				CEC4E35F29098A5C00F37FAB /* ChatListCollectionViewCell.swift in Sources */,
 				CE8C82D828ED1E5000E384BF /* LoginViewModel.swift in Sources */,
 				CEF31D0728F161B70027736A /* ViewModelType.swift in Sources */,
+				CEC4E34C29096C4900F37FAB /* FriendsListTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

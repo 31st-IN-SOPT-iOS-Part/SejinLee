@@ -8,17 +8,26 @@
 import Foundation
 
 protocol ModuleFactoryProtocol {
+    func makeKakaoTabBarController() -> KakaoTabbarController
     func makeLoginViewController() -> LoginViewController
     func makeSignUpViewConroller() -> SignUpViewController
     func makeAuthCompleteViewController(emailOrPhoneNumber: String,
                                         password: String) -> AuthCompleteViewController
     func makeFriendsViewController(userModel: UserModel) -> FriendsViewController
-    func makeProfileViewController(userModel: UserModel) -> ProfileViewController
+    func makeProfileViewController(userModel: FriendModel) -> ProfileViewController
+    func makeChatListViewController() -> ChatListViewController
+    func makeImagePickerViewContrller() -> ImagePickerViewController
 }
 
 final class ModuleFactory: ModuleFactoryProtocol {
     static let shared = ModuleFactory()
     private init() {}
+    
+    func makeKakaoTabBarController() -> KakaoTabbarController {
+        let tabBarController = KakaoTabbarController()
+        
+        return tabBarController
+    }
     
     func makeLoginViewController() -> LoginViewController {
         let loginViewController = LoginViewController()
@@ -53,10 +62,24 @@ final class ModuleFactory: ModuleFactoryProtocol {
         return friendsViewController
     }
     
-    func makeProfileViewController(userModel: UserModel) -> ProfileViewController {
+    func makeProfileViewController(userModel: FriendModel) -> ProfileViewController {
         let viewModel = ProfileViewModel(userModel: userModel)
         let profileViewController = ProfileViewController()
         profileViewController.viewModel = viewModel
         return profileViewController
+    }
+    
+    func makeChatListViewController() -> ChatListViewController {
+        let viewModel = ChatListViewModel()
+        let chatListViewController = ChatListViewController()
+        chatListViewController.viewModel = viewModel
+        return chatListViewController
+    }
+    
+    func makeImagePickerViewContrller() -> ImagePickerViewController {
+        let viewModel = ImagePickerViewModel()
+        let imagePickerViewController = ImagePickerViewController()
+        imagePickerViewController.viewModel = viewModel
+        return imagePickerViewController
     }
 }
